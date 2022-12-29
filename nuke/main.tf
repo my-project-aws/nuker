@@ -12,7 +12,7 @@ resource "random_string" "account_suffix" {
 }
 # To avoid just displaying a account ID, which might gladly be ignored by humans, it is required to actually set an Account Alias for your account. Otherwise aws-nuke will abort.
 resource "aws_iam_account_alias" "alias" {
-  account_alias = format("sandbox-env-%s", random_string.account_suffix.id)
+  account_alias = format("dev-env-%s", random_string.account_suffix.id)
 }
 
 resource "aws_iam_role" "lambda" {
