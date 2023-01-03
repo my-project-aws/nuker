@@ -1,4 +1,4 @@
-module github.com/Flutter-Global/ccoe-aft-account-customization
+module github.com/my-project-aws/nuker
 
 go 1.18
 
