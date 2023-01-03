@@ -2,12 +2,12 @@ data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
 locals {
-  nuke_config = templatefile("nuke/nuke-config.yml.tmpl", { "ACCOUNT_ID" = data.aws_caller_identity.current.account_id, regions = var.regions })
+  nuke_config = templatefile("aws-nuke/nuke-config.yml.tmpl", { "ACCOUNT_ID" = data.aws_caller_identity.current.account_id, regions = var.regions })
 }
 
 resource "local_file" "nuke_conf" {
   content  = local.nuke_config
-  filename = "nuke/nuke-config.yml"
+  filename = "aws-nuke/nuke-config.yml"
 }
 
 resource "null_resource" "create_zip" {
